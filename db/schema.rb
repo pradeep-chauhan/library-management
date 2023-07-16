@@ -17,8 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_16_172729) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.bigint "library_id", null: false
-    t.boolean "checked_out"
-    t.bigint "user_id", null: false
+    t.boolean "available"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["library_id"], name: "index_books_on_library_id"
