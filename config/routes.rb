@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       registrations: 'registrations'
   }
   resources :users, only: %i[index show]
-  resources :libraries, only: %i[index show] do
-    resources :books, only: %i[index show]
+  resources :libraries do
+    resources :books do
+      put '/checkout', to: 'books#checkout'
+    end
   end
 end
