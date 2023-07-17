@@ -16,9 +16,9 @@ class BooksController < ApplicationController
 
   def show
     if @book && @book.available?
-      @book.user = User.find(book.user_id)
+      @book.user = User.find_by(id: @book.user_id)
     end
-    render json: { book: @book }, status: :ok
+    render json: @book, include: ['user'], status: :ok
   end
 
   def create
